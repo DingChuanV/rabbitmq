@@ -1,4 +1,4 @@
-package com.uin;
+package com.uin.hello;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -19,9 +19,9 @@ public class Producer {
     public static void main(String[] args) {
         //引入连接工厂
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("127.0.0.1");
-        factory.setUsername("admin");
-        factory.setPassword("admin");
+        factory.setHost("localhost");
+        factory.setUsername("guest");
+        factory.setPassword("guest");
         try {
             //获取连接
             Connection connection = factory.newConnection();
@@ -38,7 +38,7 @@ public class Producer {
             //Declare 声明一个队列
             //queue队列的名字  durable是否持久化 exclusive是否排他  autoDelete是否自动删除  argument给队列传递的参数
             channel.queueDeclare(QUEUE_NAME, false, false, false, null);
-            String message = "Hello word";
+            String message = "Hello word BearBrick0";
             /**
              * 发送一个消息
              *  1.发送到那个交换机
