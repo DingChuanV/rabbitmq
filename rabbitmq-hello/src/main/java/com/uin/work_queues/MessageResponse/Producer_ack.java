@@ -1,4 +1,4 @@
-package com.uin.MessageResponse;
+package com.uin.work_queues.MessageResponse;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.MessageProperties;
@@ -19,9 +19,9 @@ public class Producer_ack {
 
     public static void main(String[] args) throws IOException, TimeoutException {
         Channel channel = RabbitMQUtils.getChannel();
+        channel.confirmSelect(); //信道开启发布确认
         //声明队列
-        //声明队列的持久化
-        boolean durable = true;
+        boolean durable = true;  //声明队列的持久化
         channel.queueDeclare(TASK_QUEUE_NAME, durable, false, false, null);
 
         //从控制台输入消息
