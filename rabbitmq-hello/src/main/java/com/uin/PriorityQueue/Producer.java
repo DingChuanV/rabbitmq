@@ -6,7 +6,6 @@ import com.uin.utils.RabbitMQUtils;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.Queue;
 import java.util.concurrent.TimeoutException;
 
 /**
