@@ -36,8 +36,10 @@ public class Consumer_work_ack02 {
             channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);
         };
         // 配置为不公平的分发 0默认为轮训(公平的分发) 1不公的分发(不公平的分发)
-        // int prefetchCount = 1  // 配置为不公平的分发
-        int prefetchCount = 5;//欲取值
+        // int prefetchCount = 1
+        // 配置为不公平的分发
+        int prefetchCount = 5;
+        // 欲取值
         channel.basicQos(prefetchCount);
         // 配置手动应答
         boolean autoAck = false;
