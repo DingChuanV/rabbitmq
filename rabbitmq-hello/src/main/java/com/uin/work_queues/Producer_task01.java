@@ -8,9 +8,7 @@ import java.util.Scanner;
 import java.util.concurrent.TimeoutException;
 
 /**
- * @author wanglufei
- * @description: TODO
- * @date 2022/1/24/1:09 AM
+ * 工作队列模式 ： 多个任务（生产者发送多条消息模拟多条任务）
  */
 public class Producer_task01 {
     public static final String QUEUE_NAME = "hello";

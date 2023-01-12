@@ -8,22 +8,20 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 /**
- * @author wanglufei
- * @description: 工具类
- * @date 2022/1/24/12:29 AM
+ * 工具类
  */
 public class RabbitMQUtils {
     public static Channel getChannel() throws IOException, TimeoutException {
-        //引入连接工厂
+        // 1.引入连接工厂
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
         factory.setUsername("guest");
         factory.setPassword("guest");
-        //获取连接
+        // 2.获取连接
         Connection connection = factory.newConnection();
-        //创建新的信道
+        // 3.创建新的信道
         Channel channel = connection.createChannel();
-        //返回一个新的信道
+        // 4.返回一个新的信道
         return channel;
     }
 }

@@ -10,9 +10,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 /**
- * @author wanglufei
- * @description: TODO
- * @date 2022/1/24/12:40 AM
+ * 工作队列模式 ：工人（类似工人 1）
  */
 public class Consumer_work01 {
 
