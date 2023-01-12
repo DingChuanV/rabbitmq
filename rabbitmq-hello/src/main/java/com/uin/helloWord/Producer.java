@@ -1,4 +1,4 @@
-package com.uin.hello;
+package com.uin.helloWord;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -8,24 +8,22 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 /**
- * @author wanglufei
- * @description: 生产者
- * @date 2022/1/23/10:52 PM
+ * Hello-Word模式：消息生产者
  */
 public class Producer {
-    //队列
+    // 队列
     private static final String QUEUE_NAME = "hello";
 
     public static void main(String[] args) {
-        //引入连接工厂
+        // 1.引入连接工厂
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
         factory.setUsername("guest");
         factory.setPassword("guest");
         try {
-            //获取连接
+            // 2.获取连接
             Connection connection = factory.newConnection();
-            //在连接中获取信道
+            // 3.在连接中获取信道
             Channel channel = connection.createChannel();
             /**
              ** 生成一个队列
@@ -35,8 +33,8 @@ public class Producer {
              *  4.是否自动删除 最后一个消费者断开连接以后 该队列是否自动删除 true 自动删除
              *  5.其他参数
              */
-            //Declare 声明一个队列
-            //queue队列的名字  durable是否持久化 exclusive是否排他  autoDelete是否自动删除  argument给队列传递的参数
+            // Declare 声明一个队列
+            // queue队列的名字  durable是否持久化 exclusive是否排他  autoDelete是否自动删除  argument给队列传递的参数
             channel.queueDeclare(QUEUE_NAME, false, false, false, null);
             String message = "Hello word BearBrick0";
             /**
