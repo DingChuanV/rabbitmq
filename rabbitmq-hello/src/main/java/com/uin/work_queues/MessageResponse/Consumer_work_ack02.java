@@ -9,9 +9,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 /**
- * @author wanglufei
- * @description: TODO
- * @date 2022/1/30/2:15 PM
+ * 工作队列： 消费者消息手动应答
  */
 public class Consumer_work_ack02 {
     //队列的名字
@@ -37,8 +35,8 @@ public class Consumer_work_ack02 {
              */
             channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);
         };
-        //配置为不公平的分发 0默认为轮训(公平的分发) 1不公的分发(不公平的分发)
-        //int prefetchCount = 1  //配置为不公平的分发
+        // 配置为不公平的分发 0默认为轮训(公平的分发) 1不公的分发(不公平的分发)
+        // int prefetchCount = 1  // 配置为不公平的分发
         int prefetchCount = 5;//欲取值
         channel.basicQos(prefetchCount);
         // 配置手动应答
@@ -46,7 +44,6 @@ public class Consumer_work_ack02 {
         channel.basicConsume(TASK_QUEUE_NAME, autoAck, deliverCallback, consumerTag -> {
             System.out.println("消费者取消消费接口回调");
         });
-
 
     }
 }

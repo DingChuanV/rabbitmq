@@ -9,9 +9,8 @@ import java.util.Scanner;
 import java.util.concurrent.TimeoutException;
 
 /**
- * @author wanglufei
- * @description: 消息在手动应答是不会丢失的、重新放进队列中重新消费
- * @date 2022/1/30/2:05 PM
+ * 工作队列 ：消息应答方式
+ * 消息在手动应答是不会丢失的、重新放进队列中重新消费
  */
 public class Producer_ack {
     //队列的名字

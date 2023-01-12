@@ -1,6 +1,5 @@
 package com.uin.work_queues.MessageResponse;
 
-import com.rabbitmq.client.CancelCallback;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.DeliverCallback;
 import com.uin.utils.RabbitMQUtils;
@@ -10,9 +9,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 /**
- * @author wanglufei
- * @description: TODO
- * @date 2022/1/30/2:15 PM
+ * 工作队列：消息消费者手动应答
  */
 public class Consumer_work_ack01 {
 
@@ -20,7 +17,6 @@ public class Consumer_work_ack01 {
     private static final String TASK_QUEUE_NAME = "ack_queue1";
 
     public static void main(String[] args) throws IOException, TimeoutException {
-
         Channel channel = RabbitMQUtils.getChannel();
         System.out.println("C1等待接受消息处理较短:");
         //消费消息的时候如何处理消息
@@ -38,10 +34,10 @@ public class Consumer_work_ack01 {
              */
             channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);
         };
-        //配置为不公平的分发 0默认为轮训(公平的分发) 1不公的分发(不公平的分发)
+        // 配置为不公平的分发 0默认为轮训(公平的分发) 1不公的分发(不公平的分发)
         int prefetchCount = 2; //欲取值
         channel.basicQos(prefetchCount);
-        //配置手动应答
+        // 配置手动应答
         boolean autoAck = false;
         channel.basicConsume(TASK_QUEUE_NAME, autoAck, deliverCallback, consumerTag -> {
             System.out.println("消费者取消消费接口回调");

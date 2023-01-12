@@ -1,6 +1,5 @@
 package com.uin.utils;
 
-import java.util.TreeMap;
 
 /**
  * @author wanglufei
@@ -11,6 +10,5 @@ public class SleepUtils {
 
     public static void sleep(int s) throws InterruptedException {
         Thread.sleep(1000 * s);
-
     }
 }
