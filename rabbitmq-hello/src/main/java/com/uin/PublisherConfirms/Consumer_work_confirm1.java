@@ -1,4 +1,4 @@
-package com.uin.work_queues.confirm;
+package com.uin.PublisherConfirms;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.DeliverCallback;
@@ -32,10 +32,12 @@ public class Consumer_work_confirm1 {
             System.out.println("接收到消息:" + s);
             channel.basicAck(message.getEnvelope().getDeliveryTag(), false);
         };
-
-        int prefetchCount = 5;// 预设值
-        channel.basicQos(prefetchCount); //不公平分发
-        boolean autoAck = true;// 配置手动确认
+        // 预设值
+        int prefetchCount = 5;
+        // 不公平分发
+        channel.basicQos(prefetchCount);
+        // 配置手动确认
+        boolean autoAck = true;
         channel.basicConsume(TASK_QUEUE_CONFIRM, autoAck, deliverCallback, consumerTag -> {
             System.out.println("消费者取消消费接口回调");
         });

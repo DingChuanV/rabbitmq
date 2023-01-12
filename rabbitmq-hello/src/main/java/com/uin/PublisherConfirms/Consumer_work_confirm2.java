@@ -1,4 +1,4 @@
-package com.uin.work_queues.confirm;
+package com.uin.PublisherConfirms;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.DeliverCallback;
