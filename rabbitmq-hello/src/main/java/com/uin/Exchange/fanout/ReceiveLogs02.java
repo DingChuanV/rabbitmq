@@ -1,4 +1,4 @@
-package com.uin.Publish_Subscribe.fanout;
+package com.uin.Exchange.fanout;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.DeliverCallback;
