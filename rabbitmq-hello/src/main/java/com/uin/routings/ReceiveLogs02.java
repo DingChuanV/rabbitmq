@@ -1,4 +1,4 @@
-package com.uin.Publish_Subscribe.direct;
+package com.uin.routings;
 
 import com.rabbitmq.client.BuiltinExchangeType;
 import com.rabbitmq.client.Channel;
