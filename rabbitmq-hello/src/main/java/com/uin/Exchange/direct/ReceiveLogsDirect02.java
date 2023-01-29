@@ -1,4 +1,4 @@
-package com.uin.routings.direct;
+package com.uin.Exchange.direct;
 
 import com.rabbitmq.client.BuiltinExchangeType;
 import com.rabbitmq.client.Channel;
